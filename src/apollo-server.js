@@ -4,18 +4,17 @@ import express from "express";
 import http from "http";
 import dotenv from "dotenv";
 dotenv.config({ path: `./${process.env.NODE_ENV}.env` });
-
 const PORT = process.env.PORT || 4000;
 
-async function startApolloServer() {
+async function startApolloServer(typeDefs, resolvers) {
   // Required logic for integrating with Express
   const app = express();
   const httpServer = http.createServer(app);
 
   // Same ApolloServer initialization as before, plus the drain plugin.
   const server = new ApolloServer({
-    typeDefs: [],
-    resolvers: [],
+    typeDefs,
+    resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
 
