@@ -8,7 +8,10 @@
     "start_local_dev": "NODE_ENV=dev nodemon src/index.js",
     "start_dev": "NODE_ENV=dev node src/index.js",
     "check": "eslint ./src --fix && prettier --check ./src && jest ./src --passWithNoTests",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "clean": "rm -rf build && mkdir build",
+    "build-server": "babel -d ./build . --copy-files --ignore node_modules",
+    "build": "npm run clean && npm run build-server"
   },
   "repository": {
     "type": "git",

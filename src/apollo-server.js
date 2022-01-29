@@ -1,12 +1,13 @@
 import { ApolloServer } from "apollo-server-express";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
-
 import express from "express";
 import http from "http";
 import dotenv from "dotenv";
 dotenv.config({ path: `./${process.env.NODE_ENV}.env` });
+
 const PORT = process.env.PORT || 4000;
 import createContext from "./context.js";
+import { traceRequest, traceResponse } from "./lib/utils/trace-request.js";
 
 async function startApolloServer(typeDefs, resolvers) {
   // Required logic for integrating with Express
@@ -27,6 +28,9 @@ async function startApolloServer(typeDefs, resolvers) {
 
   // More required logic for integrating with Express
   await server.start();
+
+  app.use("*", traceRequest, traceResponse);
+
   server.applyMiddleware({
     app,
 
