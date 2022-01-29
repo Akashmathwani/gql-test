@@ -7,11 +7,13 @@ class UserResource {
   async getUsers(args) {
     // const userData = await this._context.UserService.getUsers(args);
     //TODO REMOVE THIS MOCK
-    const userData = [
-      { name: "akash", email: "ak@ak.com", id: args?.id || "123" },
-    ];
-    return userData.map((data) => {
-      return new UserType(data, this._context);
+    const userIds = args?.ids;
+    const userData = [{ name: "akash", email: "ak@ak.com" }];
+    return userData.map((data, index) => {
+      return new UserType(
+        { ...data, args, userId: userIds[index] },
+        this._context
+      );
     });
   }
   async getUser(args) {
@@ -20,7 +22,8 @@ class UserResource {
     const userData = {
       name: "akash",
       email: "ak@ak.com",
-      id: args?.id || "123",
+      userId: args?.id || "123",
+      args,
     };
     return new UserType(userData, this._context);
   }

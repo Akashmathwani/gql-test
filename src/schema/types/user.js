@@ -18,11 +18,11 @@ export const userTypes = gql`
   }
 
   extend type Query {
-    user: UserType
+    user(id: ID!): UserType
   }
 
   extend type Query {
-    users: [UserType]!
+    users(ids: [ID!]!): [UserType]!
   }
 
   extend type Mutation {

@@ -5,7 +5,7 @@ export default class UserType {
   }
 
   id() {
-    return this.data?.id;
+    return this.data?.userId;
   }
   displayName() {
     return this.data?.name;
@@ -13,10 +13,14 @@ export default class UserType {
   email() {
     return this.data?.email;
   }
-  pets(args) {
-    return this._context.PetsResources.getPets(args);
+  pets() {
+    return this._context.PetsResources.getPets({
+      userId: this.id(),
+    });
   }
-  cars(args) {
-    return this._context.CarsResources.getCars(args);
+  cars() {
+    return this._context.CarsResources.getCars({
+      userId: this.id(),
+    });
   }
 }
