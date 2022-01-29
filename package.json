@@ -1,0 +1,26 @@
+{
+  "name": "gql-test",
+  "version": "1.0.0",
+  "description": "gql test for kambi",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akashmathwani/gql-test.git"
+  },
+  "author": "akash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Akashmathwani/gql-test/issues"
+  },
+  "homepage": "https://github.com/Akashmathwani/gql-test#readme",
+  "dependencies": {
+    "apollo-server": "^3.6.2",
+    "apollo-server-core": "^3.6.2",
+    "apollo-server-express": "^3.6.2",
+    "express": "^4.17.2",
+    "graphql": "^16.3.0"
+  }
+}
