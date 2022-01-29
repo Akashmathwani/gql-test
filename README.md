@@ -9,7 +9,7 @@ Make Sure you have dev.env and test.env file in your root project structure befo
 - Run ```npm install```
 - Run ```npm run start_local_dev``` to run project in local env.
 - Once you run the above command, the Apollo GraphQL Server will start on PORT 4000. Go to ```http://localhost:4000/graphql``` to explore queries and mutations in playground.
-- Before you commit the code to github, you'll see that Husky is being used to set these pre commit hooks. This is to make sure that we dont push any mistaken or wrong code to github. ```npm run check``` is the command which checks linting, prettify and runs all test cases.
+
 
 ## UnderStanding Code 
 
@@ -21,3 +21,17 @@ Make Sure you have dev.env and test.env file in your root project structure befo
 ## Things we can include further
 
 I think the time for test is very-short and we can include many things like flow types or we can use typescript, error-handling is one more thing which we can imrove by controlling error thrown from resolvers.Logging and graphQL UI can be further imroved and modified according to our use case.
+
+## Code Scripts 
+
+- ```npm run check``` -  Before you commit the code to github, you'll see that Husky is being used to set these pre commit hooks. This is to make sure that we dont push any mistaken or wrong code to github. ```npm run check``` is the command which checks linting, prettify and runs all test cases.
+- ```npm run build``` - Used to build project , becuase we have used import and export in code which saves a lot of time in dev so we are using babel in dev to make the build for the project.
+
+
+## Dependencies 
+
+- ```apollo-server , apollo-server-core , apollo-server-express , graphql, express ```  are used to set up GraphqQL Server.
+- ```axios``` is used for making https request. We could use NodeJs https but to save time , i've used axios.
+- ```dotenv``` is for using env variables, although we can use config and yaml files to set up different envs.
+
+
