@@ -5,6 +5,7 @@ import http from "http";
 import dotenv from "dotenv";
 dotenv.config({ path: `./${process.env.NODE_ENV}.env` });
 const PORT = process.env.PORT || 4000;
+import createContext from "./context.js";
 
 async function startApolloServer(typeDefs, resolvers) {
   // Required logic for integrating with Express
@@ -16,6 +17,7 @@ async function startApolloServer(typeDefs, resolvers) {
     typeDefs,
     resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    context: createContext,
   });
 
   // More required logic for integrating with Express
