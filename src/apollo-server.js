@@ -1,5 +1,6 @@
 import { ApolloServer } from "apollo-server-express";
-import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
+
 import express from "express";
 import http from "http";
 import dotenv from "dotenv";
@@ -16,8 +17,12 @@ async function startApolloServer(typeDefs, resolvers) {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
     context: createContext,
+    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
+    formatError: (err) => {
+      console.error(err);
+      return err;
+    },
   });
 
   // More required logic for integrating with Express
@@ -28,7 +33,7 @@ async function startApolloServer(typeDefs, resolvers) {
     // By default, apollo-server hosts its GraphQL endpoint at the
     // server root. However, *other* Apollo Server packages host it at
     // /graphql. Optionally provide this to match apollo-server.
-    path: "/",
+    path: "/graphql",
   });
 
   // Modified server startup
