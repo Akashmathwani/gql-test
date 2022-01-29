@@ -9,12 +9,20 @@ export const userTypes = gql`
     cars: [Car]
   }
 
-  extend type Query {
-    user: [User]!
+  type UserType implements User {
+    id: ID
+    displayName: String
+    email: String
+    pets: [Pet]
+    cars: [Car]
   }
 
   extend type Query {
-    users: [User]!
+    user: UserType
+  }
+
+  extend type Query {
+    users: [UserType]!
   }
 
   extend type Mutation {
