@@ -1,7 +1,7 @@
 import { gql } from "apollo-server-express";
 
 export const carTypes = gql`
-  interface Car {
+  type Car {
     id: String
     name: String
     description: String

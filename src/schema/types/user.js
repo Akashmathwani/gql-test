@@ -2,7 +2,7 @@ import { gql } from "apollo-server-express";
 
 export const userTypes = gql`
   interface User {
-    id: ID
+    id: ID!
     displayName: String
     email: String
     pets: [Pet]
@@ -10,7 +10,7 @@ export const userTypes = gql`
   }
 
   type UserType implements User {
-    id: ID
+    id: ID!
     displayName: String
     email: String
     pets: [Pet]

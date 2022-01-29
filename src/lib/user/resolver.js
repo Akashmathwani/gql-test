@@ -2,12 +2,10 @@ export default {
   Mutation: {},
   Query: {
     users: (root, args, context) => {
-      console.log(root, args, context);
-      return [];
+      return context.UserResources.getUsers();
     },
     user: (root, args, context) => {
-      console.log(root, args, context);
-      return { displayName: "akash", name: "user" };
+      return context.UserResources.getUser();
     },
   },
 };

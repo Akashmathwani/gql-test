@@ -1,7 +1,7 @@
 import { gql } from "apollo-server-express";
 
 export const petTypes = gql`
-  interface Pet {
+  type Pet {
     id: String
     name: String
     type: String
