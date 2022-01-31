@@ -7,8 +7,8 @@ const GET_CAR_SERVICE_PATH = process.env.GET_CAR_SERVICE_PATH;
 export default async function getCars(args, context) {
   const options = {
     hostname: GET_CAR_SERVICE_ENDPOINT,
-    path: GET_CAR_SERVICE_PATH,
-    method: "GET",
+    path: GET_CAR_SERVICE_PATH + `/${args.userId}`,
+    method: "get",
     headers: {
       "Content-Type": "application/json",
     },

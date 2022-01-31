@@ -7,6 +7,7 @@
     "start": "node src/index.js",
     "start_local_dev": "NODE_ENV=dev nodemon src/index.js",
     "start_dev": "NODE_ENV=dev node src/index.js",
+    "test": "jest ./src --passWithNoTests",
     "check": "eslint ./src --fix && prettier --check ./src && jest ./src --passWithNoTests",
     "prepare": "husky install",
     "clean": "rm -rf build && mkdir build",

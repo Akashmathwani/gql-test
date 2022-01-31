@@ -1,4 +1,5 @@
 import getUsers from "./endpoints/get-users.js";
+import getUser from "./endpoints/get-user.js";
 
 export default class UserService {
   constructor(context) {
@@ -7,5 +8,9 @@ export default class UserService {
 
   getUsers(args) {
     return getUsers(args, this._context);
+  }
+
+  getUser(args) {
+    return getUser(args, this._context);
   }
 }

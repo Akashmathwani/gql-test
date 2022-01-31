@@ -7,8 +7,8 @@ const GET_PET_SERVICE_PATH = process.env.GET_PET_SERVICE_PATH;
 export default async function getPets(args, context) {
   const options = {
     hostname: GET_PET_SERVICE_ENDPOINT,
-    path: GET_PET_SERVICE_PATH,
-    method: "GET",
+    path: GET_PET_SERVICE_PATH + `/${args.userId}`,
+    method: "get",
     headers: {
       "Content-Type": "application/json",
     },

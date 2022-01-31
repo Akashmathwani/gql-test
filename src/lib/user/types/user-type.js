@@ -4,11 +4,15 @@ export default class UserType {
     this._context = context;
   }
 
+  get __typename() {
+    return "UserType";
+  }
+
   id() {
-    return this.data?.userId;
+    return this.data?.id;
   }
   displayName() {
-    return this.data?.name;
+    return this.data?.displayName;
   }
   email() {
     return this.data?.email;

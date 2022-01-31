@@ -8,9 +8,9 @@ describe("get users endpoint", () => {
     await getUsers({}, context);
     expect(spy).toHaveBeenCalled();
     expect(spy).toHaveBeenCalledWith({
-      hostname: "https://jsonplaceholder.typicode.com",
-      path: "/users",
-      method: "GET",
+      hostname: "userService",
+      path: "/api/users",
+      method: "get",
       headers: { "Content-Type": "application/json" },
     });
   });
