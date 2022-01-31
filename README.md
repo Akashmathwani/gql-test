@@ -105,4 +105,9 @@ I think the time for test is very-short and we can include many things like flow
 - ```axios``` is used for making https request. We could use NodeJs https but to save time , i've used axios.
 - ```dotenv``` is for using env variables, although we can use config and yaml files to set up different envs.
 
+## Error Handling
+
+- Notice if you provide wrong user Id , we return a type of UserNotFoundError as User is a union of UserType and UserNotFoundError, so it can take any value.
+- If wrong input is provided, we are throwing a validation error.
+
 
