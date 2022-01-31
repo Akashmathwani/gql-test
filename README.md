@@ -1,7 +1,6 @@
 # gql-test
 gql test for kambi.
 
-
 ## To Run Project In local
 
 Make Sure you have dev.env and test.env file in your root project structure before running the project.
@@ -9,7 +8,79 @@ Make Sure you have dev.env and test.env file in your root project structure befo
 - Run ```npm install```
 - Run ```npm run start_local_dev``` to run project in local env.
 - Once you run the above command, the Apollo GraphQL Server will start on PORT 4000. Go to ```http://localhost:4000/graphql``` to explore queries and mutations in playground.
+- You can use the following query to get list of users or user
+ - To Get a list of users : 
+```
+query getUsers {
+  users(id: ["c000ef67-6f25-4b35-9f90-480deb0b9e79", "123"]) {
+    ... on UserType {
+      __typename
+      ...userFields
+    }
+    ... on UserNotFoundError {
+      message
+      __typename
+    }
+  }
+}
 
+fragment userFields on UserType {
+  id
+  displayName
+  email
+  pets {
+    id
+    name
+    type
+    age
+    userId
+  }
+  cars {
+    id
+    name
+    description
+    purchased
+    userId
+  }
+}
+
+```
+-  To Get a user :
+```
+query getUser {
+  user(id: "c000ef67-6f25-4b35-9f90-480deb0b9e79") {
+    ... on UserType {
+      __typename
+      ...userFields
+    }
+    ... on UserNotFoundError {
+      message
+      __typename
+    }
+  }
+}
+
+fragment userFields on UserType {
+  id
+  displayName
+  email
+  pets {
+    id
+    name
+    type
+    age
+    userId
+  }
+  cars {
+    id
+    name
+    description
+    purchased
+    userId
+  }
+}
+
+```
 
 ## UnderStanding Code 
 
